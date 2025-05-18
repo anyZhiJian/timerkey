@@ -44,7 +44,7 @@
 初始化完成在对应平台的定时器回调中调用`tkey_handler`函数处理按键的扫描事件
 # 回调函数编写
 ## 检测回调函数
-```
+```c
 int tkey_detect_cb(void *user_data)
 {
     int *pin = (int*)user_data;
@@ -64,8 +64,8 @@ int tkey_detect_cb(void *user_data)
 - TKEY_EVENT_ALL_RELEASE:所有释放的状态
 
 不同的事件可以通过`|`与操作来完成多状态检测
-```
-void tkey_detect_cb(tkey_handle_t key, tkey_event_t event, uint8_t, press_count, void *user_data)
+```c
+void tkey_detect_cb(tkey_handle_t key, tkey_event_t event, uint8_t press_count, void *user_data)
 {
     switch(key)
     {
