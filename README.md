@@ -13,7 +13,7 @@
 创建一个按键对象，可以选择创建默认按键对象或者自定义按键对象
 ### 创建默认按键对象
 调用`tkey_create_default`函数创建默认按键对象  
-默认按键对象的属性如下
+默认按键对象的属性如下:  
 - 按键扫描的FSM工作在**50Hz**的频率下
 - 去抖时间:1 tick(20ms@50Hz)
 - 长按时间:50 tick(1000ms@50Hz)
@@ -21,8 +21,8 @@
 - 按键按下时电平:0(低电平)
 
 ### 创建自定义按键对象
-调用`tkey_create`函数创建自定义按键对象，使用tkey_init_t结构体初始化按键对象  
-结构体参数如下  
+调用`tkey_create`函数创建自定义按键对象，使用`tkey_init_t`结构体初始化按键对象  
+结构体参数如下:  
 - event_cb:事件回调函数
 - detect_cb:检测回调函数
 - user_data:传入回调函数的用户数据
@@ -33,9 +33,8 @@
 
 ## STEP 2
 调用`tkey_register_cbs`函数为按键注册事件回调函数和检测回调函数  
-(可选)调用设置函数单独设置某一个参数
 ## STEP 3
-调用`tkey_check_init`函数检测按键初始化状态，返回值如下：  
+调用`tkey_check_init`函数检测按键初始化状态，返回值如下:  
 - 0:初始化完成
 - -1:初始化未完成
 
@@ -53,7 +52,7 @@ int tkey_detect_cb(void *user_data)
 ```
 可以在注册回调函数时通过`user_data`传入需要检测的引脚，这样可以将这个检测回调函数注册在不同的按键对象中
 ## 事件回调函数
-所有的按键事件如下  
+所有的按键事件如下:  
 - TKEY_EVENT_PRESS:按下
 - TKEY_EVENT_LONG_PRESS:长按
 - TKEY_EVENT_RELEASE:释放
@@ -88,7 +87,7 @@ void tkey_detect_cb(tkey_handle_t key, tkey_event_t event, uint8_t press_count, 
     }
 }
 ```
-事件回调函数的参数如下  
+事件回调函数的参数如下:  
 - key:按键对象
 - event:事件
 - press_count:按下次数
