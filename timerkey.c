@@ -54,7 +54,7 @@ tkey_handle_t tkey_create_default(void) {
     init.debounce_ticks = 1;
     init.detect_cb = NULL;
     init.event_cb = NULL;
-    init.hold_ticks = 50;
+    init.hold_ticks = 25;
     init.multi_press_interval_ticks = 15;
     init.pressed_level = 0;
     init.user_data = NULL;

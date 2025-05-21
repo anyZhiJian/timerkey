@@ -16,7 +16,7 @@
 默认按键对象的属性如下
 - 按键扫描的FSM工作在**50Hz**的频率下
 - 去抖时间:1 tick(20ms@50Hz)
-- 长按时间:50 tick(1000ms@50Hz)
+- 长按时间:25 tick(500ms@50Hz)
 - 连续按下时间间隔:15 tick(300ms@50Hz)
 - 按键按下时电平:0(低电平)
 
@@ -65,7 +65,7 @@ int tkey_detect_cb(void *user_data)
 
 不同的事件可以通过`|`与操作来完成多状态检测
 ```c
-void tkey_detect_cb(tkey_handle_t key, tkey_event_t event, uint8_t press_count, void *user_data)
+void tkey_event_cb(tkey_handle_t key, tkey_event_t event, uint8_t press_count, void *user_data)
 {
     switch(key)
     {
