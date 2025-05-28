@@ -65,6 +65,21 @@ tkey_handle_t tkey_create_default(void)
     return tkey_create(&init);
 }
 
+tkey_handle_t tkey_create_default_and_init(tkey_event_cb_t event_cb, tkey_detect_cb_t detect_cb, void *user_data)
+{
+    int ret;
+    tkey_handle_t key = tkey_create_default();
+    if(!key) return NULL;
+    tkey_register_cbs(key, event_cb, detect_cb, user_data);
+    ret = tkey_check_init(key);
+    if(ret)
+    {
+        tkey_delete(key);
+        return NULL;
+    }
+    return key;
+}
+
 int tkey_check_init(tkey_handle_t key)
 {
     if (!key)

@@ -43,6 +43,7 @@ typedef struct
     uint16_t pressed_level;
 } tkey_init_t;
 
+tkey_handle_t tkey_create_default_and_init(tkey_event_cb_t event_cb, tkey_detect_cb_t detect_cb, void *user_data);
 tkey_handle_t tkey_create_default(void);
 tkey_handle_t tkey_create(tkey_init_t *init);
 void tkey_delete(tkey_handle_t key);
